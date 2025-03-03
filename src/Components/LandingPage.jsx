@@ -5,6 +5,7 @@ import { Navbar, Nav, Container, Row, Col, Card, Button, Accordion } from 'react
 const ControlHubLandingPage = () => {
   return (
     <div className="landing-page">
+      
       {/* Navigation */}
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
@@ -22,7 +23,7 @@ const ControlHubLandingPage = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
+      
       {/* Hero Section */}
       <div className="hero bg-primary text-white text-center py-5 mt-5">
         <Container className="py-5">

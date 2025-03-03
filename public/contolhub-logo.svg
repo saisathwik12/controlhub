@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <!-- Main Circle (representing agile/continuous flow) -->
+  <circle cx="200" cy="100" r="70" fill="#2684FF" filter="url(#glow)"/>
+  
+  <!-- Kanban Board Elements -->
+  <rect x="165" y="60" width="70" height="80" rx="8" fill="white" transform="rotate(-15, 200, 100)"/>
+  <rect x="170" y="65" width="50" height="8" rx="2" fill="#2684FF" transform="rotate(-15, 200, 100)"/>
+  <rect x="170" y="80" width="40" height="8" rx="2" fill="#DEEBFF" transform="rotate(-15, 200, 100)"/>
+  <rect x="170" y="95" width="45" height="8" rx="2" fill="#DEEBFF" transform="rotate(-15, 200, 100)"/>
+  
+  <!-- Progress Arrow -->
+  <path d="M 200 50 C 240 50, 240 150, 200 150" 
+        fill="none" 
+        stroke="white" 
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-opacity="0.6"/>
+  
+  <!-- Small Dots (representing workflow states) -->
+  <circle cx="200" cy="50" r="6" fill="white"/>
+  <circle cx="220" cy="100" r="6" fill="white"/>
+  <circle cx="200" cy="150" r="6" fill="white"/>
+  
+  <!-- Filters -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feColorMatrix in="blur" type="saturate" values="1.5" result="color"/>
+      <feBlend in="SourceGraphic" in2="color" mode="normal"/>
+    </filter>
+  </defs>
+</svg>
