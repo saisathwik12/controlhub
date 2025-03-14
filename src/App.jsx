@@ -1,14 +1,13 @@
 import { Header } from "./components/Header"
 import { MainSection } from "./components/MainSection"
+import { ThemeProvider } from "./components/ThemeProvider"
 
 function App() {
   return (
-    <div className="body-background h-dvh">
-      <Header/>
-      <MainSection/>
-      <footer >
-        {/* <div className="container bg-blue-500 text-center mx-auto py-10">Sathwik is good boy</div> */}
-      </footer>
+    <div className="body-background">
+      <ThemeProvider>
+        <MainSection />
+      </ThemeProvider>
     </div>
   )
 }

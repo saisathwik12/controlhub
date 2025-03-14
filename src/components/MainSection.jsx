@@ -1,36 +1,40 @@
 import React from 'react'
 import { Button } from './ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { features } from '@/Data/features';
-import { BarChart, Calendar, Layout } from "lucide-react";
+import { Header } from './Header';
+import { faqs } from '@/Data/Faqs';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
+import { ArrowRight } from 'lucide-react';
 
 
 
 export const MainSection = () => {
     return (
-        <div>
+        <div className="sm:bg-none md:bg-[url(/public/hero/shape-01.svg)] bg-right-top bg-no-repeat ">
+            <Header />
             {/* Hero Section */}
             <section className='text-center'>
-                <h1 className='text-6xl sm:text-7xl lg:text-8xl font-extrabold pb-6 flex flex-col gradient-title text-center'>Refine Your Work Process <br />
+                <h1 className='text-6xl sm:text-7xl lg:text-8xl font-extrabold my-10 pb-6 flex flex-col gradient-title text-center'>Refine Your Work Process <br />
                     <span className='flex flex-wrap justify-center mx-auto gap-3 sm:gap-4'>with
-                        <img src="project_title.png" alt="logo" width={400} height={80} className='inline' />
+                        <img src="logos/project_title.png" alt="logo" width={400} height={80} className='inline' />
                     </span>
                 </h1>
-                <p className='text-xl text-gray-300 max-wd-3xl '>Unlock your team's potential with our effortlessly simple project management solution.</p>
+                <p className='text-xl text-gray-200 max-wd-3xl'>Unlock your team's potential with our effortlessly simple project management solution.</p>
                 <a href="/onboarding">
-                    <Button size="lg" className='mr-2 mt-4 cursor-pointer'>Get Started</Button>
+                    <Button size="lg" className=' mr-2 mt-10 cursor-pointer'>Get Started</Button>
                 </a>
                 <a href="#features">
-                    <Button size='lg' variant='outline' className='mt-4 cursor-pointer'>Learn More</Button>
+                    <Button size='lg' variant='outline' className='mt-10 cursor-pointer'>Learn More</Button>
                 </a>
             </section>
             <section>
-                <div id='features' className='text-center'>
-                    <h3 className='text-2xl my-5 mx-auto text-gray-100'>Key Features</h3>
+                <div id='features' className='text-center border-blue-950 border-2 rounded-2xl mx-5 my-10 p-5 py-10'>
+                    <h3 className='text-3xl font-extrabold my-5 mx-auto text-blue-300'>Key Features</h3>
                     <div className='flex flex-wrap justify-center gap-1'>
                         {features.map((data, index) => {
                             return (
-                                <Card key={index} className='bg-blue-950 text-gray-100 content-center max-w-100 m-2 p-5 border-0'>
+                                <Card key={index} className='bg-gradient-to-bl from-blue-950 to-blue-800 text-gray-100 content-center max-w-100 m-2 p-5 border-0 hover:scale-105 duration-500'>
                                     <CardHeader className='flex flex-row mx-auto text-2xl'>
                                         <data.icon ></data.icon>
                                         <CardTitle >{data.title}</CardTitle>
@@ -40,11 +44,54 @@ export const MainSection = () => {
                                     </CardContent>
                                 </Card>
                             )
-
                         })}
                     </div>
                 </div>
             </section>
+            {/* <section>
+                <div id='features' className='text-center border-blue-950 border-2 rounded-2xl m-5 p-3'>
+                    <h3 className='text-3xl font-bold my-5 mx-auto'>Trusted By Industry Leaders</h3>
+                    <div >
+
+                    </div>
+                </div>
+            </section> */}
+            <section>
+                <div id='features' className='text-center border-blue-950 border-2 rounded-2xl m-5 p-5 py-10'>
+                    <h3 className='text-3xl font-bold my-5 mx-auto '>Frequently Asked Questions</h3>
+                    <div >
+                        <Accordion type="single" collapsible className="text-2xl">
+                            {faqs.map((data, index) => {
+                                return (
+                                    <>
+                                        <AccordionItem value={`item-${index + 1}`} key={index} className="border-blue-950">
+                                            <AccordionTrigger>{data.question}</AccordionTrigger>
+                                            <AccordionContent>
+                                                {data.answer}
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    </>
+                                )
+                            })}
+                        </Accordion>
+                    </div>
+                </div>
+            </section>
+
+            <section className="sm:bg-none md:bg-[url(/public/hero/shape-02.svg)] bg-left-bottom bg-no-repeat ">
+                <div id='features' className='text-center border-blue-950 border-2 rounded-2xl m-5 p-10'>
+                    <h3 className='text-3xl font-bold my-5 mx-auto'>Ready to Transform Your Workflow?</h3>
+                    <p className='my-5 mb-10'>Join thousands of teams already using CONTROLHUB to streamline their projects and boost productivity.</p>
+                    <a href="/">
+                        <Button size="lg" className='animate-bounce'>
+                            Start For Free <ArrowRight className='ml-2 h-5 w-5' />
+                        </Button>
+                    </a>
+                </div>
+            </section>
+
+
+
         </div>
     )
 }

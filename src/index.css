@@ -124,9 +124,9 @@
 }
 
 .gradient-title{
- @apply font-extrabold bg-gradient-to-br from-blue-500 via-blue-100 to-blue-400 bg-clip-text tracking-tighter text-transparent pr-2 pb-2;
+ @apply font-extrabold bg-gradient-to-br from-blue-900 via-blue-500 to-blue-900 bg-clip-text tracking-tighter text-transparent pr-2 pb-2;
 }
 
 .body-background{
-  @apply bg-gradient-to-br from-blue-950 via-blue-800 to-blue-900;
+  @apply bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950;
 }
