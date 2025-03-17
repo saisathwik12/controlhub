@@ -2,17 +2,16 @@ import React from 'react'
 import { Button } from './ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { features } from '@/Data/features';
-import { Header } from './Header';
 import { faqs } from '@/Data/Faqs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 
 
 export const MainSection = () => {
     return (
-        <div className="sm:bg-none md:bg-[url(/public/hero/shape-01.svg)] bg-right-top bg-no-repeat ">
-            <Header />
+        <div >
             {/* Hero Section */}
             <section className='text-center'>
                 <h1 className='text-6xl sm:text-7xl lg:text-8xl font-extrabold my-10 pb-6 flex flex-col gradient-title text-center'>Refine Your Work Process <br />
@@ -21,9 +20,9 @@ export const MainSection = () => {
                     </span>
                 </h1>
                 <p className='text-xl text-gray-200 max-wd-3xl'>Unlock your team's potential with our effortlessly simple project management solution.</p>
-                <a href="/onboarding">
+                <Link to="/onboarding">
                     <Button size="lg" className=' mr-2 mt-10 cursor-pointer'>Get Started</Button>
-                </a>
+                </Link>
                 <a href="#features">
                     <Button size='lg' variant='outline' className='mt-10 cursor-pointer'>Learn More</Button>
                 </a>
@@ -63,14 +62,12 @@ export const MainSection = () => {
                         <Accordion type="single" collapsible className="text-2xl">
                             {faqs.map((data, index) => {
                                 return (
-                                    <>
-                                        <AccordionItem value={`item-${index + 1}`} key={index} className="border-blue-950">
-                                            <AccordionTrigger>{data.question}</AccordionTrigger>
-                                            <AccordionContent>
-                                                {data.answer}
-                                            </AccordionContent>
-                                        </AccordionItem>
-                                    </>
+                                    <AccordionItem value={`item-${index + 1}`} key={index} className="border-blue-950">
+                                        <AccordionTrigger>{data.question}</AccordionTrigger>
+                                        <AccordionContent>
+                                            {data.answer}
+                                        </AccordionContent>
+                                    </AccordionItem>
                                 )
                             })}
                         </Accordion>
@@ -78,15 +75,15 @@ export const MainSection = () => {
                 </div>
             </section>
 
-            <section className="sm:bg-none md:bg-[url(/public/hero/shape-02.svg)] bg-left-bottom bg-no-repeat ">
+            <section className="sm:bg-none md:bg-[url(./Hero/shape-02.svg)] bg-left-bottom bg-no-repeat ">
                 <div id='features' className='text-center border-blue-950 border-2 rounded-2xl m-5 p-10'>
                     <h3 className='text-3xl font-bold my-5 mx-auto'>Ready to Transform Your Workflow?</h3>
                     <p className='my-5 mb-10'>Join thousands of teams already using CONTROLHUB to streamline their projects and boost productivity.</p>
-                    <a href="/">
+                    <Link to="/onboarding">
                         <Button size="lg" className='animate-bounce'>
                             Start For Free <ArrowRight className='ml-2 h-5 w-5' />
                         </Button>
-                    </a>
+                    </Link>
                 </div>
             </section>
 
